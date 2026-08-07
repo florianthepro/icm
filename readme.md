@@ -20,6 +20,7 @@ Webseite macht: E-Mails sortieren:
    - API<!--(Claude)--> gibt Ordnernamen zurück
    - Antwort validieren
    - E-Mail in den Ordner verschieben
+   - wärend dem api austausch speichert der server die antworten verschlüsselt aus hash aus dem anwendungspassword (deine identität ist hash aus mail) rest passirt im browser von dir
 ```
 goto https://account.apple.com/account/manage
 >Anwendungsspezifische Passwörter<
@@ -36,5 +37,7 @@ website will:
 3. create needet folders
 4. sort mails
   1. api(claude agent will get source and destionation mail adresse and will response with the foldername site will validatet it then sort
+
+seite speichert
 ```
 <!--zjgrszpijgxlmkgzwoefawkjfh-->
