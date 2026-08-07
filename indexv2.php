@@ -1,33 +1,4 @@
 <?php
-/**
- * icm - Postfaecher sortieren. Eine Datei.
- *
- * Debian, nginx, PHP 8.1+, Erweiterungen sodium, mbstring, curl.
- *
- * Ausgehend noetig:  443/TCP zur Claude-API, 993/TCP zu den IMAP-Servern, DNS.
- * Eingehend:         80/443 fuer die Oberflaeche.
- *
- * Cron:  *5 * * * *  php /pfad/index.php cron
- *
- * Die KI wird immer auf demselben Weg angesprochen wie in simplev2.php: der
- * Aufruf von .../fire startet nur eine Sitzung, die Antwort steht nicht in der
- * HTTP-Antwort. Deshalb laeuft es andersherum - dieser Server legt die Fragen
- * bereit und weckt die Routine, die Routine holt sie unter ?auftrag=<TOKEN> ab
- * und schickt die Zuordnung zurueck. Beim naechsten Lauf wird einsortiert.
- *
- * Einsortiert wird mit der IMAP-Erweiterung MOVE, wo der Server sie anbietet
- * (z. B. Google). iCloud bietet MOVE nicht an - dort wird kopiert (UID COPY),
- * das Original bleibt im Posteingang stehen. Das Programm kennt bewusst kein
- * Kommando, das eine Nachricht loescht (kein STORE \Deleted, kein EXPUNGE).
- *
- * WICHTIG - Datenverzeichnis schuetzen: Der Stand liegt per Vorgabe in
- * icm-data neben dieser Datei. Die dort mitgelieferte .htaccess wirkt nur
- * unter Apache. Unter nginx muss der Ordner ausdruecklich gesperrt werden,
- * sonst sind config.json, key.bin und die Konten uebers Web abrufbar:
- *     location ~ /icm-data/ { deny all; }
- * Besser: ICM_DATA_DIR auf einen Pfad ausserhalb des Web-Wurzelverzeichnisses
- * setzen. Dort liegen verschluesselte Passwoerter samt Schluessel.
- */
 
 declare(strict_types=1);
 
