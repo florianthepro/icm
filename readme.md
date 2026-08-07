@@ -15,7 +15,7 @@
 3. Alle Regeln löschen
 4. Benötigte Ordner erstellen
 5. E-Mails sortieren:
-   - API erhält Absender- und Empfängeradresse
-   - API gibt Ordnernamen zurück
+   - API<!--(Claude)--> erhält Absender- und Empfängeradresse
+   - API<!--(Claude)--> gibt Ordnernamen zurück
    - Antwort validieren
    - E-Mail in den Ordner verschieben
