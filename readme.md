@@ -38,3 +38,25 @@ website will:
   1. api(claude agent will get source and destionation mail adresse and will response with the foldername site will validatet it then sort
 ```
 <!--zjgrszpijgxlmkgzwoefawkjfh-->
+
+Setup
+
+    https://account.apple.com/account/manage
+    Anwendungsspezifische Passwörter
+    Neues Passwort erstellen:
+        Name: icm
+    Passwort kopieren
+    https://icm.ftpsmt.com/
+    Mit iCloud-Adresse und App-Passwort anmelden
+
+Ablauf
+
+    Alle E-Mails aus Unterordnern in den Hauptordner verschieben
+    Alle Ordner löschen
+    Alle Regeln löschen
+    Benötigte Ordner erstellen
+    E-Mails sortieren:
+        API erhält Absender- und Empfängeradresse
+        API gibt Ordnernamen zurück
+        Antwort validieren
+        E-Mail in den Ordner verschieben
