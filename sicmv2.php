@@ -1,35 +1,4 @@
 <?php
-/**
- * simplev2.php - iCloud-Postfach von einer Claude-Routine sortieren lassen.
- *
- * Eine Datei, sonst nichts. Kein Composer, keine ext/imap, kein require.
- *
- * Der Aufruf von .../fire startet nur eine Sitzung, die Antwort steht nicht in
- * der HTTP-Antwort. Deshalb laeuft es andersherum: dieser Server legt die Fragen
- * bereit und weckt die Routine, die Routine holt sie ab und schickt die
- * Zuordnung zurueck. Beim naechsten Cronlauf wird einsortiert.
- *
- * Gelesen werden nur Absender und Empfaenger, nie ein Mailinhalt. Geloescht
- * wird keine Nachricht. Gesendet, Entwuerfe, Werbung und Papierkorb bleiben
- * unberuehrt.
- *
- * Einsortiert wird mit der IMAP-Erweiterung MOVE, wo der Server sie anbietet.
- * iCloud bietet MOVE nicht an - dort wird stattdessen kopiert (UID COPY) und
- * das Original bleibt im Posteingang stehen. So geht keine Nachricht verloren:
- * das Programm kennt bewusst kein Kommando, das eine Nachricht loescht (kein
- * STORE \Deleted, kein EXPUNGE). DELETE betrifft nur leere Ordner.
- *
- * Ablage: simple-apple-data neben dieser Datei.
- * Cron alle fuenf Minuten:  php /pfad/simplev2.php cron
- *
- * WICHTIG - Datenverzeichnis schuetzen: Der Stand liegt per Vorgabe in
- * simple-apple-data neben dieser Datei. Die dort abgelegte .htaccess wirkt nur
- * unter Apache. Unter nginx muss der Ordner ausdruecklich gesperrt werden,
- * sonst sind config.json, key.bin und die Konten uebers Web abrufbar:
- *     location ~ /simple-apple-data/ { deny all; }
- * Besser: SA_DATA_DIR auf einen Pfad ausserhalb des Web-Wurzelverzeichnisses
- * setzen. Dort liegen verschluesselte Passwoerter samt Schluessel.
- */
 
 declare(strict_types=1);
 
